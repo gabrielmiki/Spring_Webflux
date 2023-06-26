@@ -1,0 +1,31 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'edu.miki.webflux'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext{
+	reactorVersion = '3.4.21'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation "io.projectreactor:reactor-core:$reactorVersion"
+	testImplementation "io.projectreactor:reactor-test:$reactorVersion"
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
